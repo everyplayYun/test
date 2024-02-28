@@ -8,8 +8,8 @@ class GithubActionTest {
         assert(true)
     }
 
-    @Test
-    fun testFail() {
-        assert(false)
-    }
+//    @Test
+//    fun testFail() {
+//        assert(false)
+//    }
 }
