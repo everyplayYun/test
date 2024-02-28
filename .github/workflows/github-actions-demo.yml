@@ -2,6 +2,12 @@ name: GitHub Actions Demo
 on:
   workflow_dispatch:
   push:
+    branches:
+      - develop
+      - feature/**
+  pull_request:
+    branches:
+      - develop
 
 
 jobs:
