@@ -6,8 +6,8 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:   
-    - name: print hello
-      run: echo "hello"
-    - name: print world
-      run: echo "world"
+      - name: print hello
+        run: echo "hello"
+      - name: print world
+        run: echo "world"
 		
