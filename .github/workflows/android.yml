@@ -1,22 +1,12 @@
-name: Android CI/CD
-description: 'Android CI/CD pipeline workflow'
-author: 'Henrique Horbovyi <henrikhorbovyi@gmail.com>'
-branding:
-  icon: 'box'
-  color: 'green'
+name: First Action
+on: workflow_dispatch
 
-# on:
-#   push:
-#     branches: 
-#      - '*' 
-#      - '!master' 
-#      - '!release*'
-#   pull_request:
-#     branches:
-#      - '*' 
-#      - '!master' 
-#      - '!release*'
-
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
+jobs:
+  first-job:
+	runs-on: ubuntu-latest
+        steps:   
+	  - name: print hello
+	    run: echo "hello"
+	  - name: print world
+	    run: echo "world"
+		
