@@ -26,7 +26,7 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys:
             ${{ runner.os }}-gradle-
-          
+
       - name: set up JDK 17
         uses: actions/setup-java@v3
         with:
@@ -39,3 +39,23 @@ jobs:
 
       - name: Build with Gradle
         run: ./gradlew test
+
+      - name: Build love android
+        id: build-apk-test
+        uses: everyplayYun/test@v1
+        with:
+          app-name: "test App"
+          bundle-id: "com.example.myapplication"
+          resource-path: "./assets/android/res"
+          icon-specifier: "@mipmap/app"
+          hash-name: "d999bdc82f1c00753ea1e2989860ab6560f19b10"
+          libs-path: "./assets/android/libs"
+          extra-assets: ./README.md ./license.txt
+          product-name: "my-application"
+          version-string: "1.0"
+          version-code: 1
+          output-folder: "./dist"
+          keystore-alias: ${{ secrets.ANDROID_KEYSTORE_ALIAS }}
+          keystore-base64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          keystore-key-password: ${{ secrets.ANDROID_KEYSTORE_KEYPASSWORD }}
+          keystore-store-password: ${{ secrets.ANDROID_KEYSTORE_STOREPASSWORD }}
