@@ -53,7 +53,6 @@ jobs:
           bundle-id: "com.example.myapplication"
           resource-path: "./assets/android/res"
           icon-specifier: "@mipmap/app"
-          libs-path: "./assets/android/libs"
           extra-assets: ./README.md ./license.txt
           product-name: "MyApplication"
           version-string: "1.0"
