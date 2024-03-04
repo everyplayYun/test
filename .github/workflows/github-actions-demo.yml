@@ -40,25 +40,8 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew test
 
-  apk:
-    name: Generate APK
-    runs-on: ubuntu-latest
+      - name: Build AAB with Gradle
+        run: ./gradlew assembleRelease
 
-    steps:
-      - name: Build love android
-        id: build-love
-        uses: love-actions/love-actions-android@v1
-        with:
-          app-name: "test application"
-          bundle-id: "com.example.myapplication"
-        
-          icon-specifier: "@mipmap/app"
-          extra-assets: ./README.md ./license.txt
-          product-name: "MyApplication"
-          version-string: "1.0"
-          version-code: 1
-          output-folder: "./dist"
-          keystore-alias: ${{ secrets.ANDROID_KEYSTORE_ALIAS }}
-          keystore-base64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
-          keystore-key-password: ${{ secrets.ANDROID_KEYSTORE_KEYPASSWORD }}
-          keystore-store-password: ${{ secrets.ANDROID_KEYSTORE_STOREPASSWORD }}
+      - name: Copy AAB artifact
+        run: cp app/build/outputs/bundle/release/app-release.aab ${{ github.workspace }}/app-release.aab
