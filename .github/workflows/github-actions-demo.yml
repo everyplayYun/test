@@ -45,15 +45,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
-      - name: set up JDK 17
-        uses: actions/setup-java@v1
+      - name: Build love android
+        id: build-love
+        uses: love-actions/love-actions-android@v1
         with:
-          java-version: 17
-      - name: Build debug APK
-        run: bash ./gradlew assembleDebug --stacktrace
-      - name: Upload APK
-        uses: actions/upload-artifact@v1
-        with:
-          name: app
-          path: app/build/outputs/apk/debug
+          app-name: "test application"
+          bundle-id: "com.example.myapplication"
+          resource-path: "./assets/android/res"
+          icon-specifier: "@mipmap/app"
+          libs-path: "./assets/android/libs"
+          extra-assets: ./README.md ./license.txt
+          product-name: "MyApplication"
+          version-string: "1.0"
+          version-code: 1
+          output-folder: "./dist"
+          keystore-alias: ${{ secrets.ANDROID_KEYSTORE_ALIAS }}
+          keystore-base64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          keystore-key-password: ${{ secrets.ANDROID_KEYSTORE_KEYPASSWORD }}
+          keystore-store-password: ${{ secrets.ANDROID_KEYSTORE_STOREPASSWORD }}
