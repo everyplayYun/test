@@ -43,5 +43,3 @@ jobs:
       - name: Build AAB with Gradle
         run: ./gradlew bundleRelease
 
-      - name: Copy AAB artifact
-        run: cp app/build/outputs/bundle/release/app-release.aab /c/Users/USER/AndroidStudioProjects/MyApplication/app/release/app-release.aab
