@@ -51,7 +51,7 @@ jobs:
         with:
           app-name: "test application"
           bundle-id: "com.example.myapplication"
-          resource-path: "./assets/android/res"
+        
           icon-specifier: "@mipmap/app"
           extra-assets: ./README.md ./license.txt
           product-name: "MyApplication"
